@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 
 const app = express();
 
@@ -13,6 +14,7 @@ const sampleEmployee = {
 	},
 };
 
+app.use(cors({ origin: ["http://localhost:5173"] }));
 app.get("/api/employees", (req, res) => {
 	res.json({ result: [sampleEmployee] });
 });
